@@ -45,13 +45,13 @@
 
     <script>
 
-        const SERVER = "http://127.0.0.1:5001/login"
+        const SERVER = "https://library-project-lorg.onrender.com"
 
         const logIn = async () => {
             const user_name = document.getElementById('username').value
             const password = document.getElementById('password').value
             try {
-            const loginResponse = await axios.post(SERVER, {
+            const loginResponse = await axios.post(`${SERVER}/login`, {
                 user_name: user_name,
                 password: password
             });
