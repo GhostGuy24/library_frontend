@@ -101,7 +101,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             displayWelcomeMessage();
         });
-        const SERVER = "http://127.0.0.1:5001/library";
+        const SERVER = "https://library-project-lorg.onrender.com";
         const displayWelcomeMessage = () => {
             const token = localStorage.getItem("access_token");
 
@@ -138,7 +138,7 @@
                 }
             };
             try {
-                const response = await axios.get(SERVER, config);
+                const response = await axios.get(`${SERVER}/library`, config);
                 const { totalBooks, totalCustomers, activeLoans, overdueLoans } = response.data;
 
                 document.getElementById('total-books').textContent = totalBooks;
