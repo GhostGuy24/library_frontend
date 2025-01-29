@@ -142,6 +142,8 @@
         };
 
         const addCustomer = async () => {
+            const config = getAuthConfig();
+            if (!config) return;
             const customer_data = {
                 customer_name: document.getElementById('customername').value,
                 city: document.getElementById('city').value,
@@ -149,11 +151,7 @@
             };
 
             try {
-                await axios.post(SERVER, customer_data, {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
+                await axios.post(SERVER, customer_data, config});
                 document.getElementById('customername').value = '';
                 document.getElementById('city').value = '';
                 document.getElementById('age').value = '';
