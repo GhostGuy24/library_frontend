@@ -65,7 +65,7 @@
   </div>
 
   <script>
-    const SERVER = 'http://127.0.0.1:5001/signup';
+    const SERVER = 'https://library-project-lorg.onrender.com';
 
     const toggleAdditionalFields = () => {
       const membershipType = document.querySelector('input[name="membership_type"]:checked').value;
@@ -97,7 +97,7 @@
       console.log("User data:", user_data);
 
       try {
-        const response = await axios.post(SERVER, user_data);
+        const response = await axios.post(`${SERVER}/signup`, user_data);
 
         if (response.status === 201) {
           document.getElementById('responseMessage').innerHTML = '<div class="alert alert-success">User added successfully!</div>';
